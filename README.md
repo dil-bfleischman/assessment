@@ -1,14 +1,22 @@
-# Problem description:
-Task is to create a UI (be it either a pure rails view rendered from the backend, or any frontend rendered page) which has an input box and a search button.
+# Assessment description:
+The task is to create a UI (be it either a pure rails view rendered from the backend, or any frontend rendered page) which has an input box and a search button.
 
 Upon pressing the button, it queries movies using the value of the input, through the backend you build.
 
 The backend may forward the query to an external api (if it doesn't have the answer) and displays the results in a list.
 
-Our subscription limits how many requests we are allowed to send to the 3rd party API. If that limit exceeded, we will be overcharged, so we build a server which only forward users request if the,
+
+A; Welcome at the Stark Blockbuster Studios! 
+
+A; Mr. Stark the owner of studio has just recently signed a contract with an API provider to serve our users queries. The contract has a daily query limit.
+A; Previously by analyzing the traffic our data analytics team identiefed a few patterns regarding the usage.
+A; We have bursts in the traffice for example when a fresh movie gets reviewed on some site.
+A; Mr. Stark come up with the idea to only forward queries to the provider which hasn't been requested already, this way build a cache for our users.
+
+B; Our subscription limits how many requests we are allowed to send to the 3rd party API. If that limit exceeded, we will be overcharged, so we build a server which only forward users request if the,
 query is not in its cache.
 
-Some backend code stub already prepared [lib/movies_client.rb](./lib/movies_client.rb) for the project. While building the application, integrate this file in your solution and extend it as needed.
+A,B; Some backend code stub already prepared [lib/movies_client.rb](./lib/movies_client.rb) for the project. While building the application, integrate this file in your solution and extend it as needed.
 
 # Requirements
 - The backend is implemented in ruby
@@ -28,8 +36,7 @@ The backend checks if the same query has recevied within 2 mins and the results 
 
 1. If not, it forwards the request to 3rd party API:
     - Fetch movies matching the query: The api is ["The Movie Database - registration required"](https://developers.themoviedb.org/3/search/search-movies).
-    - Sort (by popularity): Implement a sorting algorithms in ruby. Any algorithm can be used, it doesn't have to be the most performant.
-      Later on, when we’ll chat about the your program, you may present the algorithm. (Eg: how it works, how performant, etc)
+    #    - This doesn't make sense since we get paginated results from the remote api: Sort (by popularity): Implement a sorting algorithms in ruby. Any algorithm can be used, it doesn't have to be the most performant. Later on, when we’ll chat about the your program, you may present the algorithm. (Eg: how it works, how performant, etc)
     - Save in a datatastore:
       - The list of movies
       - The search term(s)
@@ -57,4 +64,5 @@ The results should be paginated if more than 20 items returned by the query, oth
 - Write tests
 - Deploy the application
 - Think about future improvements
-  [note] Sort by other attributes
+  [note] Implement force to skip cache feature
+  #  [note] Sort by other attributes, again since we don't have the full dataset sort only make sense in terms what is visible to the user but if the user paginates FE sorting will be meaningless and confusing. So skip this.
