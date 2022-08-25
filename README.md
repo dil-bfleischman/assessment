@@ -19,6 +19,8 @@ While building the application, integrate this file in your solution and impleme
 
 When you have finished your work, upload the code to any code hosting site (Bitbucket, Github, Gitlab, etc) and provide us with link.
 
+Simpler is better! Focus on them problem add additional features only, if you sure it is good fit.
+
 # High level workflow:
 
 ## Sending Requests:
@@ -35,19 +37,27 @@ The backend checks if the same query has received within 2 mins and the results 
     - Fetch movies matching the query: The API is ["The Movie Database - registration required"](https://developers.themoviedb.org/3/search/search-movies).
     - Save the search and its results in a datastore:
       - Results returned by The Movie Database API
-      - Set view count to 0
+      - Set cache hit count to 0
+
+Note: For the first not cached render the counter should stay 0
 
   2. If yes:
     If the same keyword(s) are looked up within 2 mins:
     - Serve directly by the backend, no API request should be sent to the 3rd party API.
-    - Record view count should be incremented by 1
+    - Record cache hit count should be incremented by 1
+
+Note: The counter is very important the necessary server resources will be calculated based on it.
 
 Display results
 
-Indicate whether results are fetched from our server or from the 3rd party API (display a small notice somewhere on the screen)
+Indicate to the user on the UI, whether results are fetched from our server or from the 3rd party API (display a small notice somewhere on the screen)
 
 ## Pagination
 The results should be paginated if more than 20 items returned by the query, otherwise pagination elements should not displayed.
+
+## UI mockup
+
+![Mockup](./ruby_assessment_mockup.png)
 
 # Bonus
 - Nice UI
@@ -56,3 +66,5 @@ The results should be paginated if more than 20 items returned by the query, oth
 - Write tests
 - Deploy the application
 - Think about future improvements
+
+In case of any questions do not hesitate to send an email to: bfleischman@diligent.com
