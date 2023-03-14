@@ -19,7 +19,7 @@ While building the application, integrate this file in your solution and impleme
 
 When you have finished your work, upload the code to any code hosting site (Bitbucket, Github, Gitlab, etc) and provide us with link.
 
-Simpler is better! Focus on them problem add additional features only, if you sure it is good fit.
+Simpler is better! Focus on them problem add additional features only, if you sure it is a good fit.
 
 # High level workflow:
 
@@ -31,7 +31,7 @@ The UI (from the browser) sends request to the backend.
 ## Processing the request:
 The query consist the search term and optionally the current page.
 
-The backend checks if the same query has received within 2 mins and the results are already saved in its data store?
+The backend checks if the same query has received within 2 mins and the results are already saved in its datastore?
 
   1. If not, it forwards the request to 3rd party API:
     - Fetch movies matching the query: The API is ["The Movie Database - registration required"](https://developers.themoviedb.org/3/search/search-movies).
